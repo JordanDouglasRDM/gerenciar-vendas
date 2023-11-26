@@ -1,0 +1,14 @@
+C:\Users\Jordan\OneDrive - Fatec Centro Paula Souza\FATEC\4° Termo\POO\exercices\TrabalhoHerancaComposicaoVenda\bin\Debug\net7.0\TrabalhoHerancaComposicaoVenda.exe
+C:\Users\Jordan\OneDrive - Fatec Centro Paula Souza\FATEC\4° Termo\POO\exercices\TrabalhoHerancaComposicaoVenda\bin\Debug\net7.0\TrabalhoHerancaComposicaoVenda.deps.json
+C:\Users\Jordan\OneDrive - Fatec Centro Paula Souza\FATEC\4° Termo\POO\exercices\TrabalhoHerancaComposicaoVenda\bin\Debug\net7.0\TrabalhoHerancaComposicaoVenda.runtimeconfig.json
+C:\Users\Jordan\OneDrive - Fatec Centro Paula Souza\FATEC\4° Termo\POO\exercices\TrabalhoHerancaComposicaoVenda\bin\Debug\net7.0\TrabalhoHerancaComposicaoVenda.dll
+C:\Users\Jordan\OneDrive - Fatec Centro Paula Souza\FATEC\4° Termo\POO\exercices\TrabalhoHerancaComposicaoVenda\bin\Debug\net7.0\TrabalhoHerancaComposicaoVenda.pdb
+C:\Users\Jordan\OneDrive - Fatec Centro Paula Souza\FATEC\4° Termo\POO\exercices\TrabalhoHerancaComposicaoVenda\obj\Debug\net7.0\TrabalhoHerancaComposicaoVenda.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Jordan\OneDrive - Fatec Centro Paula Souza\FATEC\4° Termo\POO\exercices\TrabalhoHerancaComposicaoVenda\obj\Debug\net7.0\TrabalhoHerancaComposicaoVenda.AssemblyInfoInputs.cache
+C:\Users\Jordan\OneDrive - Fatec Centro Paula Souza\FATEC\4° Termo\POO\exercices\TrabalhoHerancaComposicaoVenda\obj\Debug\net7.0\TrabalhoHerancaComposicaoVenda.AssemblyInfo.cs
+C:\Users\Jordan\OneDrive - Fatec Centro Paula Souza\FATEC\4° Termo\POO\exercices\TrabalhoHerancaComposicaoVenda\obj\Debug\net7.0\TrabalhoHerancaComposicaoVenda.csproj.CoreCompileInputs.cache
+C:\Users\Jordan\OneDrive - Fatec Centro Paula Souza\FATEC\4° Termo\POO\exercices\TrabalhoHerancaComposicaoVenda\obj\Debug\net7.0\TrabalhoHerancaComposicaoVenda.dll
+C:\Users\Jordan\OneDrive - Fatec Centro Paula Souza\FATEC\4° Termo\POO\exercices\TrabalhoHerancaComposicaoVenda\obj\Debug\net7.0\refint\TrabalhoHerancaComposicaoVenda.dll
+C:\Users\Jordan\OneDrive - Fatec Centro Paula Souza\FATEC\4° Termo\POO\exercices\TrabalhoHerancaComposicaoVenda\obj\Debug\net7.0\TrabalhoHerancaComposicaoVenda.pdb
+C:\Users\Jordan\OneDrive - Fatec Centro Paula Souza\FATEC\4° Termo\POO\exercices\TrabalhoHerancaComposicaoVenda\obj\Debug\net7.0\TrabalhoHerancaComposicaoVenda.genruntimeconfig.cache
+C:\Users\Jordan\OneDrive - Fatec Centro Paula Souza\FATEC\4° Termo\POO\exercices\TrabalhoHerancaComposicaoVenda\obj\Debug\net7.0\ref\TrabalhoHerancaComposicaoVenda.dll
