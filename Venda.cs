@@ -7,66 +7,52 @@ namespace TrabalhoHerancaComposicaoVenda
 {
     public class Venda
     {
+        public long Codigo { get; set; }
+        public bool StatusPagamento { get; set; }
+        private static long AutoIncrementoCodigo { get; set; }
         public DateTime Data { get; set; }
-        private double total;
+        public double Total { get; private set; }
 
-        public List<ItemVenda> VetItemVenda { get; set; }//define relacionamento de muitos itens de venda
-        public List<Pagamento> VetPagamento { get; set; }//define relacionamento de muitos tipos de pagamentos para a mesma venda
+        public List<ItemVenda> VetItemVenda { get; set; }
+        public Pagamento Pagamento { get; set; }
 
         public Venda()
         {
             VetItemVenda = new List<ItemVenda>();// aplica a composição de fato, pois só existe dentro do construtor
-            VetPagamento = new List<Pagamento>();// define a composição.
             this.Data = DateTime.Now;
-
+            AutoIncrementoCodigo++;
+            this.Codigo = AutoIncrementoCodigo;
         }
-        public double Total
+        public void CalculaTotal()
         {
-            get
+            double soma = 0;
+            foreach (ItemVenda itemVenda in VetItemVenda)
             {
-                if (VetItemVenda != null)
-                {
-                    foreach (ItemVenda item in VetItemVenda)
-                    {
-                        Total += item.Subtotal;
-                    }
-                } else {
-                    throw new Exception("Você não possui nenhum item de venda cadastrado.");
-                }
-
-                return Total;
+                soma += itemVenda.Subtotal;
             }
-            set { total = value; }
+            this.Total = soma;
         }
         public void AddItemVenda(ItemVenda itemVenda)
         {
             VetItemVenda.Add(itemVenda);
-            Console.WriteLine("Item de venda adicionado com sucesso.");
         }
-        public void ExibirVenda()
+        public void ExibirMeusItens()
         {
-            Console.WriteLine($"\nData da Venda: {this.Data}");
-            Console.WriteLine($"Total da Venda: {this.Total}");
+            foreach (ItemVenda item in VetItemVenda)
+            {
+                item.ExibirItem();
+            }
         }
 
         public void AddPagamento(Pagamento pagamento)
         {
-            VetPagamento.Add(pagamento);
-            Console.WriteLine("Pagamento adicionado com sucesso.");
+            this.Pagamento = pagamento;
         }
-
+        public void ExibirVenda()
+        {
+            Console.WriteLine($"Código da Venda: {this.Codigo} \tData da Venda: {this.Data} \tTotal da Venda: {this.Total:C2} \tStatus do Pagamento: {(this.StatusPagamento == true ? "Pago" : "Em Aberto")}");
+            if (this.StatusPagamento)
+                Console.WriteLine($"Tipo de pagamento: {this.Pagamento.GetType().Name}");
+        }
     }
 }
-/*
-    1 - Façam os relacionamentos existirem na composição e com a classe pagamento;
-    2 - Implemente os encapsulamentos;
-    3 - Implemente o método 'Exibir()' de todas as classes;
-    4 - Implementar todos os construtores com todos os parâmetros;
-    5 - Instanciar objetos para testar;
-    6 - O cheque pode ser predatado (pode usar today de datetime para pegar a data atual da venda)
-    7 - menuzinho de venda para selecionar as opções
-
-    1° Trabalho - 17/10/2023 -  Mensalista
-    2° Trabalho - 24/10/2023 -  Gerenciador de bonificação
-    3° Trabalho - 17/10/2023 -  
-*/

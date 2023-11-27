@@ -1,37 +1,51 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Xml;
 
 namespace TrabalhoHerancaComposicaoVenda
 {
     public class Produto
     {
-        public long Codigo { get; set; }
+        private static long AutoIncrementoCodigo { get; set; }
+        public long Codigo { get; private set; }
         public string Nome { get; set; } 
-        public double Preco { get; set; } 
-        public int Estoque { get; set; }
-        public Produto CadastrarProdutos()
+        private double preco;        
+        public double Preco
         {
-            Console.WriteLine("Informe o código: ");
-            this.Codigo = Convert.ToInt32(Console.ReadLine());
-            
-            Console.WriteLine("Informe o nome: ");
+            get 
+            {
+                if (preco > 0)
+                return preco;
+                else
+                    throw new Exception("O preço deve ser maior que 0.");
+            }
+            set { preco = value; }
+        }
+        
+        public int Estoque { get; set; }
+        public Produto()
+        {
+            AutoIncrementoCodigo++;
+            this.Codigo = AutoIncrementoCodigo;
+        }
+        public Produto AdicionarProduto()
+        {   
+            Console.Write("Informe o nome: ");
             this.Nome = Console.ReadLine();
             
-            Console.WriteLine("Informe o preço: ");
+            Console.Write("Informe o preço: ");
             this.Preco = Convert.ToDouble(Console.ReadLine());
             
-            Console.WriteLine("Informe o estoque: ");
+            Console.Write("Informe o estoque: ");
             this.Estoque = Convert.ToInt32(Console.ReadLine());
             return this; //representa o próprio objeto após a digitação.
         }
         public void ExibeProduto()
         {
-            Console.WriteLine($"Código produto: {this.Codigo}");
-            Console.WriteLine($"Nome: {this.Nome}");
-            Console.WriteLine($"Preco: {this.Preco:C2}");
-            Console.WriteLine($"Estoque: {this.Estoque}");
+            Console.WriteLine($"Código produto: {Codigo} \tNome: {this.Nome} \tPreco: {this.Preco:C2} \tEstoque atual: {this.Estoque}");
         }
     }
 }

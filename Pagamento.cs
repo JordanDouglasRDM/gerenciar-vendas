@@ -12,14 +12,13 @@ namespace TrabalhoHerancaComposicaoVenda
 
         public Pagamento(double total)
         {
-            this.Data = DateTime.Now;
             this.Total = total;
+            this.Data = DateTime.Now;
         }
 
         public virtual void ExibeDadosPagamento()
         {
-            Console.WriteLine($"\nTotal Pagamento: {this.Total:C2}");
-            Console.WriteLine($"Data e hora do pagamento: {this.Data}");
+            Console.WriteLine($"Total Pago: {this.Total:C2} \tData e hora do pagamento: {this.Data}");
         }
     }
 }

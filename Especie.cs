@@ -9,6 +9,9 @@ namespace TrabalhoHerancaComposicaoVenda
     {
         private double quantia;
         private double troco;
+        public Especie(double total) : base(total)
+        {
+        }
         public double Quantia
         {
             get { return quantia; }
@@ -20,7 +23,6 @@ namespace TrabalhoHerancaComposicaoVenda
                     throw new Exception("A quantia informada deve ser maior ou igual o Total da venda.");
             }
         }
-
         public double Troco
         {
             get
@@ -28,18 +30,17 @@ namespace TrabalhoHerancaComposicaoVenda
                 troco = this.Quantia - base.Total;
                 return troco;
             }
-            private set { }
         }
-
-        public Especie(double total, double quant) : base(total)
+        public Especie AdicionarPagamento()
         {
-            this.Quantia = quant;
+            Console.Write("Informe a quantia recebida: ");
+            this.Quantia = Convert.ToDouble(Console.ReadLine());
+            return this;
         }
         public override void ExibeDadosPagamento()
         {
             base.ExibeDadosPagamento();
-            Console.WriteLine($"Valor da quantia recebida: {this.Quantia:C2}");
-            Console.WriteLine($"Valor do troco: {this.Troco:C2}");
+            Console.WriteLine($"Valor da quantia recebida: {this.Quantia:C2} \tValor do troco: {this.Troco:C2}");
         }
     }
 }
