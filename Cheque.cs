@@ -17,7 +17,7 @@ namespace TrabalhoHerancaComposicaoVenda
         public Cheque AdicionarPagamento()
         {
             Console.Write("Informe o número do cheque: ");
-            this.Numero = Convert.ToInt32(Console.ReadLine());
+            this.Numero = Convert.ToInt64(Console.ReadLine());
 
             Console.Write("Informe a data de deposito [dd/mm/aaaa]: ");
             this.DataDeposito = DateTime.Parse(Console.ReadLine());

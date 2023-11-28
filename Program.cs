@@ -79,7 +79,7 @@ public class Program
                         }
                         else
                         {
-                            throw new Exception("Sem produtos cadastrados, adicioone e tente novamente.");
+                            throw new Exception("Sem produtos cadastrados, adicione e tente novamente.");
                         }
                     }
                     catch (Exception e)
@@ -118,7 +118,7 @@ public class Program
                         }
                         else
                         {
-                            throw new Exception("Sem produtos cadastrados, adicioone e tente novamente.");
+                            throw new Exception("Sem produtos cadastrados, adicione e tente novamente.");
                         }
                     }
                     catch (Exception e)
@@ -188,94 +188,13 @@ public class Program
 
                             if (desejaPagarVenda == "s")
                             {
-                                bool informarPagamento = true;
-                                while (informarPagamento)
-                                {
-                                    mensagem.Primaria("\n\t##Pagar Venda##");
-                                    Console.WriteLine("Formas de pagamento: ");
-                                    Console.WriteLine("1 - Espécie");
-                                    Console.WriteLine("2 - Cheque");
-                                    Console.WriteLine("3 - Cartão");
-                                    Console.Write("Selecione a opção desejada: ");
-                                    string opcPagamento = Console.ReadLine();
-                                    switch (opcPagamento)
-                                    {
-                                        case "1":
-                                            try
-                                            {
-                                                Console.Clear();
-                                                mensagem.Primaria("\tPagamento em espécie selecionado.");
-                                                mensagem.Sucesso($"\nTotal da venda: {venda.Total:C2}");
-                                                Especie especie = new Especie(venda.Total);
-                                                especie.AdicionarPagamento();
-                                                mensagem.Sucesso($"\n\tQuantia recebida, o troco deve ser de {especie.Troco:C2}");
-                                                venda.StatusPagamento = true;
-                                                mensagem.Sucesso($"\n\tPagamento finalizado com sucesso.");
-                                                venda.AddPagamento(especie);
-                                                VetVendas.Add(venda);
-                                                informarPagamento = false;
-
-                                            }
-                                            catch (Exception e)
-                                            {
-                                                mensagem.Erro($"\n\tOops, ocorreu um erro: {e.Message}");
-                                            }
-                                            break;
-                                        case "2":
-                                            try
-                                            {
-                                                Console.Clear();
-                                                mensagem.Primaria("\tPagamento em cheque selecionado.");
-                                                mensagem.Sucesso($"\nTotal da venda: {venda.Total:C2}");
-                                                Cheque cheque = new Cheque(venda.Total);
-                                                cheque.AdicionarPagamento();
-
-                                                mensagem.Sucesso($"\n\tQuantia recebida.");
-                                                venda.StatusPagamento = true;
-                                                mensagem.Sucesso($"\n\tPagamento finalizado com sucesso.");
-                                                venda.AddPagamento(cheque);
-                                                VetVendas.Add(venda);
-                                                informarPagamento = false;
-                                            }
-                                            catch (Exception e)
-                                            {
-                                                mensagem.Erro($"\n\tOops, ocorreu um erro: {e.Message}");
-                                            }
-
-                                            break;
-                                        case "3":
-                                            try
-                                            {
-                                                Console.Clear();
-                                                mensagem.Primaria("\tPagamento em cartão selecionado.");
-                                                mensagem.Sucesso($"\nTotal da venda: {venda.Total:C2}");
-                                                Cartao cartao = new Cartao(venda.Total);
-                                                cartao.AdicionarPagamento();
-
-                                                mensagem.Sucesso($"\n\tQuantia recebida.");
-                                                venda.StatusPagamento = true;
-                                                mensagem.Sucesso($"\n\tPagamento finalizado com sucesso.");
-                                                venda.AddPagamento(cartao);
-                                                VetVendas.Add(venda);
-                                                informarPagamento = false;
-                                            }
-                                            catch (Exception e)
-                                            {
-                                                mensagem.Erro($"\n\tOops, ocorreu um erro: {e.Message}");
-                                            }
-                                            break;
-
-                                        default:
-                                            mensagem.Erro("\n\tForma de pagamento inválida, tente novamente.");
-                                            break;
-                                    }
-                                }
+                                venda.RegistrarVenda();
                             }
                             else
                             {
                                 venda.StatusPagamento = false;
-                                VetVendas.Add(venda);
                             }
+                            VetVendas.Add(venda);
                         }
                         else
                         {
@@ -415,92 +334,13 @@ public class Program
                             {
                                 vendaEncontrada = true;
                                 mensagem.Sucesso($"\nTotal da venda: {venda.Total:C2}");
-                                bool informarPagamento = true;
-                                while (informarPagamento)
-                                {
-                                    mensagem.Primaria("\n\t##Pagar Venda##");
-                                    Console.WriteLine("Formas de pagamento: ");
-                                    Console.WriteLine("1 - Espécie");
-                                    Console.WriteLine("2 - Cheque");
-                                    Console.WriteLine("3 - Cartão");
-                                    Console.Write("Selecione a opção desejada: ");
-                                    string opcPagamento = Console.ReadLine();
-                                    switch (opcPagamento)
-                                    {
-                                        case "1":
-                                            try
-                                            {
-                                                Console.Clear();
-                                                mensagem.Primaria("\tPagamento em espécie selecionado.");
-                                                mensagem.Sucesso($"\nTotal da venda: {venda.Total:C2}");
-                                                Especie especie = new Especie(venda.Total);
-                                                especie.AdicionarPagamento();
-                                                mensagem.Sucesso($"\n\tQuantia recebida, o troco deve ser de {especie.Troco:C2}");
-                                                venda.StatusPagamento = true;
-                                                mensagem.Sucesso($"\n\tPagamento finalizado com sucesso.");
-                                                venda.AddPagamento(especie);
-                                                informarPagamento = false;
-
-                                            }
-                                            catch (Exception e)
-                                            {
-                                                mensagem.Erro($"\n\tOops, ocorreu um erro: {e.Message}");
-                                            }
-                                            break;
-                                        case "2":
-                                            try
-                                            {
-                                                Console.Clear();
-                                                mensagem.Primaria("\tPagamento em cheque selecionado.");
-                                                mensagem.Sucesso($"\nTotal da venda: {venda.Total:C2}");
-                                                Cheque cheque = new Cheque(venda.Total);
-                                                cheque.AdicionarPagamento();
-
-                                                mensagem.Sucesso($"\n\tQuantia recebida.");
-                                                venda.StatusPagamento = true;
-                                                mensagem.Sucesso($"\n\tPagamento finalizado com sucesso.");
-                                                venda.AddPagamento(cheque);
-                                                informarPagamento = false;
-                                            }
-                                            catch (Exception e)
-                                            {
-                                                mensagem.Erro($"\n\tOops, ocorreu um erro: {e.Message}");
-                                            }
-
-                                            break;
-                                        case "3":
-                                            try
-                                            {
-                                                Console.Clear();
-                                                mensagem.Primaria("\tPagamento em cartão selecionado.");
-                                                mensagem.Sucesso($"\nTotal da venda: {venda.Total:C2}");
-                                                Cartao cartao = new Cartao(venda.Total);
-                                                cartao.AdicionarPagamento();
-
-                                                mensagem.Sucesso($"\n\tQuantia recebida.");
-                                                venda.StatusPagamento = true;
-                                                mensagem.Sucesso($"\n\tPagamento finalizado com sucesso.");
-                                                venda.AddPagamento(cartao);
-                                                informarPagamento = false;
-                                            }
-                                            catch (Exception e)
-                                            {
-                                                mensagem.Erro($"\n\tOops, ocorreu um erro: {e.Message}");
-                                            }
-                                            break;
-
-                                        default:
-                                            mensagem.Erro("\n\tForma de pagamento inválida, tente novamente.");
-                                            break;
-                                    }
-                                }
+                                venda.RegistrarVenda();
                             }
                         }
                         if (!vendaEncontrada)
                         {
                             throw new Exception("Código da venda não encontrado. Tente novamente.");
                         }
-
                     }
                     catch (Exception e)
                     {
